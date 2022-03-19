@@ -1,0 +1,229 @@
+.nav-wrap {
+    display: flex;
+    justify-content: space-between;
+    color: rgb(175, 22, 106);
+    padding: 15px 0px;
+}
+
+.menu ul {
+    display: flex;
+    align-items: center;
+}
+
+.nav-wrap a {
+    color: white;
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+.nav-wrap a:hover {
+    color: rgb(236, 233, 31);
+    text-decoration: none;
+}
+
+.nav-wrap ul li {
+    list-style-type: none;
+    padding: 0px 10px;
+    align-items: center;
+    font-size: 20px;
+}
+
+.logo i {
+    color: rgb(175, 22, 106);
+    font-size: 40px;
+}
+
+
+/*header body*/
+
+.header-body {
+    max-width: 1150px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.header-contain {
+    padding: 10px;
+    width: 500px;
+    height: 100px;
+    font-size: 20px;
+}
+
+.header-body .header-contain a {
+    color: white;
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+.header-body .header-contain a:hover {
+    color: rgb(243, 247, 54);
+    text-decoration: none;
+}
+
+.feature {
+    color: rgb(175, 22, 106);
+    font-size: 40px;
+    text-align: center;
+}
+
+.after {
+    content: '';
+    width: 490px;
+    height: 2px;
+    display: inline-block;
+    background-color: e30f5f;
+    margin: 1px 0px 6px 0px;
+}
+
+.padding-right {
+    padding-right: 80px;
+}
+
+.box-wrap {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-side {
+    width: 50%;
+    height: 200px;
+}
+
+.left-side .img {
+    width: 20px;
+    height: 20px;
+}
+
+.right-side {
+    width: 50%;
+    height: 200px;
+}
+
+.ok {
+    background-color: rgb(175, 22, 106);
+}
+
+.ok1 {
+    height: 330px;
+}
+
+.color {
+    color: rgb(175, 22, 106);
+}
+
+.color1 {
+    color: white;
+}
+
+.bgcolor {
+    background-color: f5f5f5;
+}
+
+
+/*copy code for signup page*/
+
+.login_btn {
+    width: 100%;
+    background: #33ccff !important;
+    color: white !important;
+}
+
+.fo {
+    color: red;
+}
+
+
+/*rate ar jonno..not use it*/
+
+
+/* Hide Radio button */
+
+
+/* Hide Radio button */
+
+.rate>input {
+    display: none;
+}
+
+.rate {
+    display: inline-block;
+    ;
+    border: 0;
+}
+
+.rate>label {
+    float: right;
+}
+
+
+/* Showing the stars */
+
+.rate>label:before {
+    display: inline-block;
+    font-size: 1.1rem;
+    font-family: FontAwesome;
+    content: "\f005";
+    margin: 0;
+    padding: 0.3rem .2rem;
+    cursor: pointer;
+}
+
+
+/* Half star */
+
+.rate .half:before {
+    content: "\f089";
+    position: absolute;
+    padding-right: 0;
+}
+
+<!--bellow style for rating and review-->.rate>input {
+    display: none;
+}
+
+.rate {
+    display: inline-block;
+    border: 0;
+}
+
+.rate>label {
+    float: right;
+}
+
+.rate>label:before {
+    display: inline-block;
+    font-size: 1.1rem;
+    font-family: FontAwesome;
+    content: "\f005";
+    margin: 0;
+    padding: 0.3rem .2rem;
+    cursor: pointer;
+}
+
+.rate .half:before {
+    content: "\f089";
+    position: absolute;
+    padding-right: 0;
+}
+
+input:checked~label,
+label:hover~label {
+    color: #ffb503;
+}
+
+input:checked+label:hover,
+input:checked~label:hover,
+input:checked~label:hover~label,
+label:hover~input:checked~label {
+    color: #cc9000;
+}
+
+.rating-star i {
+    color: #ffb503 !important;
+}
+
+
+/*end rating ar work for label,star create..but not use it*/

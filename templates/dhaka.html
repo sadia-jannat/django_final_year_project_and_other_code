@@ -1,0 +1,503 @@
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    
+   <!--extra Bootstrap from w3 schoool-->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+   <!-- Fontawesome Links icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    
+  <!--forntawesome link-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    
+
+   <!--Fontawesome link for text-->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@500&display=swap" rel="stylesheet">
+
+    
+   <!-- static nebar link-->
+   {%load static %}
+   <link rel="stylesheet" href="{% static 'css/style.css'%}">
+   <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+   <!--auto complete with jQuery-->
+   <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+  
+   <!-- jQuery for auto search last house and dhaka also ..dhaka add for after uselog  page-->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+   <!-- jQuery UI for auto search last house and dhaka also ..dhaka add for after uselog  page-->
+   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+
+
+  
+    <title>Owner form fillup page</title>
+    <style>
+      #main-title{
+        color: #fff;
+      }
+      .back{
+        background-color: #CCCCCC;
+      }
+      .card{
+        -webkit-box-shadow: 5px 5px 20px 5px rgba(51,31,4,0.99); 
+        box-shadow: 5px 5px 20px 5px rgba(51,31,4,0.99);
+      }
+      .card:hover{
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			border-radius: 5px;
+      }
+      .image-responsive{
+        height:300px;
+      }
+      .card-title:hover{
+        color:blue;
+      }
+    
+
+      .category-image{
+        overflow:hidden;
+      }
+      .category-image img{
+        transition:all 1.5s ease;
+      }
+      .category-image:hover img{
+        transform:scale(1.5);
+      }
+
+    </style>
+
+</head>
+<body class="back">
+
+  <!--nav wrap and menu-, header body-->
+  <div class="container">
+            
+    <div class="nav-wrap">
+        <div class="logo">
+           <h1><i class="fas fa-home"></i>HOME</h1>
+           
+        </div>
+    <div class="menu">
+
+       <ul>
+        <li>
+       <button type="submit" class="btn btn-danger btn-md"> <a href="{% url 'fill' %}">Add Your House Details</a></button>
+       <button style="margin:5px;" class="btn btn-success"><a style="color:white" href="/dhaka/">back</a></button>
+       <!--logout ok by authentications-->
+     <button style="margin:5px;" class="btn btn-success"><a href="{% url 'uselog' %}" class="ml-2">back uselog page</a></button>
+  
+        </li>
+      </ul>
+
+    </div>
+              
+ </div>
+</div>
+  <!--end nav wrap and menu-, header body-->
+
+  
+ 
+
+<!--search normal code not auto -->  
+  <div class="d-flex justify-content-center">
+
+    <h1 id="main-title"> <i style="color:green" class="fas fa-home"></i>House Details</h1>
+ 
+  </div> 
+
+  <!--back dhaka-->
+  
+  
+<!--search code
+<section>
+  <div class="container">
+  
+  <form class="d-flex" action="" method="get" >
+          <input class="form-control me-2" name="query" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-success" type="submit">Search</button>
+
+          <button style="margin:5px;" class="btn btn-success"><a style="color:white" href="/dhaka/">back</a></button>
+          
+   </form>
+   
+  
+  </div>
+  </section>-->
+
+<!--here auto search for after login user search and see with details-->
+<section>
+  <div class="container">
+  <!--header-body-->
+    <div class="header-body">
+            
+      <div class="header-contain">
+           
+      <!--form for auto search-->
+      <form action="/dhaka/" method="post">
+        {% csrf_token %}
+
+      <div class="row">
+      <div class="col">
+
+      <label for="code"><h3 class="text-white">Enter Your Place</h3></label>
+
+        <input id="query" name="query" type="text" class="form-control" placeholder="Enter Place">
+        
+
+      </div>
+      </div>
+
+      <button type="submit" class="btn btn-danger btn-lg mt-3">
+        <i class="fa fa-search"></i>
+        Search Your Place</button>
+
+     </form>
+  <!--end form-->
+     </div>
+     
+    </div>
+  </div>
+</section>  
+
+
+
+<!--flat house-->
+
+<div class="container">
+  <h1>Flat House</h1>
+<div class="row"> 
+<div class="col-md-12">  
+
+
+{% if house_list %}
+
+{% for fee in house_list %}
+
+{% if fee.housecategory == 'flat' %}
+
+<div class="col-md-4">
+<div class="card mt-5">
+<div class="card-body ">
+  
+    <div class="category-image" >
+    <img src="{{ fee.img.url }}" alt="Category image" class="image-responsive rounded" width="100%" > 
+    </div>
+    
+    <h2 class="card-title text-center border">House Name:  {{fee.housename}} </h2>
+    <h2 class="card-title text-center border">House id:  {{fee.pk}} </h2>
+
+    {% if login_result == 0 %}
+    
+    <h3 class="card-text text-center">House Rent: {{fee.houserent}} </h3>
+     
+    
+    <div class="d-flex justify-content-center links">
+
+     <a href="{% url 'info' fee.pk%}" class="btn btn-primary ml-2">Details</a> <!--fee.pk use kora hoy just info page a jabar jonno-->
+
+    </div>
+
+    {% endif %}
+
+    
+
+</div>
+</div>
+</div>
+
+{%endif%}
+
+
+
+{% endfor %}
+
+{%else%}
+<p>No search record found</p>
+
+{% endif %}
+
+
+    
+</div>
+</div>
+</div> 
+
+<!--duplex house-->
+
+<div class="container">
+  <h1>Duplex House</h1>
+<div class="row"> 
+<div class="col-md-12">  
+
+
+{% if house_list %}
+
+{% for fee in house_list %}
+
+{% if fee.housecategory == 'duplex' %}
+
+<div class="col-md-4">
+<div class="card mt-5">
+<div class="card-body ">
+  
+    <div class="category-image" >
+    <img src="{{ fee.img.url }}" alt="Category image" class="image-responsive rounded" width="100%" > 
+    </div>
+    
+    <h2 class="card-title text-center border">House Name:  {{fee.housename}} </h2>
+    <h2 class="card-title text-center border">House id:  {{fee.pk}} </h2>
+
+    {% if login_result == 0 %}
+    
+    <h3 class="card-text text-center">House Rent: {{fee.houserent}} </h3>
+     
+    
+    <div class="d-flex justify-content-center links">
+
+     <a href="{% url 'info' fee.pk%}" class="btn btn-primary ml-2">Details</a> <!--fee.pk use kora hoy just info page a jabar jonno-->
+
+    </div>
+
+    {% endif %}
+     
+    
+
+</div>
+</div>
+</div>
+
+
+{%endif%}
+
+{% endfor %}
+
+{%else%}
+<p>No search record found</p>
+
+{% endif %}
+
+
+
+
+    
+</div>
+</div>
+</div> 
+
+
+<!--family house-->
+
+<div class="container">
+  <h1>Family House</h1>
+<div class="row"> 
+<div class="col-md-12">  
+
+
+{% if house_list %}
+
+{% for fee in house_list %}
+
+{% if fee.housecategory == 'family_house' %}
+
+<div class="col-md-4">
+<div class="card mt-5">
+<div class="card-body ">
+  
+    <div class="category-image" >
+    <img src="{{ fee.img.url }}" alt="Category image" class="image-responsive rounded" width="100%" > 
+    </div>
+    
+    <h2 class="card-title text-center border">House Name:  {{fee.housename}} </h2>
+    <h2 class="card-title text-center border">House id:  {{fee.pk}} </h2>
+
+    {% if login_result == 0 %}
+    
+    <h3 class="card-text text-center">House Rent: {{fee.houserent}} </h3>
+     
+    
+    <div class="d-flex justify-content-center links">
+
+     <a href="{% url 'info' fee.pk%}" class="btn btn-primary ml-2">Details</a> <!--fee.pk use kora hoy just info page a jabar jonno-->
+
+    </div>
+
+    {% endif %}
+
+    
+
+</div>
+</div>
+</div>
+
+{%endif%}
+
+
+
+{% endfor %}
+
+{%else%}
+<p>No search record found</p>
+
+{% endif %}
+
+
+</div>
+</div>
+</div> 
+
+
+
+<!--commercial house-->
+
+<div class="container">
+  <h1>Commercial House</h1>
+<div class="row"> 
+<div class="col-md-12">  
+
+
+{% if house_list %}
+
+{% for fee in house_list %}
+
+{% if fee.housecategory == 'commercial' %}
+
+<div class="col-md-4">
+<div class="card mt-5">
+<div class="card-body ">
+  
+    <div class="category-image" >
+    <img src="{{ fee.img.url }}" alt="Category image" class="image-responsive rounded" width="100%" > 
+    </div>
+    
+    <h2 class="card-title text-center border">House Name:  {{fee.housename}} </h2>
+    <h2 class="card-title text-center border">House id:  {{fee.pk}} </h2>
+
+    {% if login_result == 0 %}
+    
+    <h3 class="card-text text-center">House Rent: {{fee.houserent}} </h3>
+     
+    
+    <div class="d-flex justify-content-center links">
+
+     <a href="{% url 'info' fee.pk%}" class="btn btn-primary ml-2">Details</a> <!--fee.pk use kora hoy just info page a jabar jonno-->
+
+    </div>
+
+    {% endif %}
+
+    
+
+</div>
+</div>
+</div>
+
+{%endif%}
+
+
+{% endfor %}
+
+{%else%}
+<p>No search record found</p>
+
+{% endif %}
+
+
+</div>
+</div>
+</div> 
+
+
+<!--try dropdown-->
+<section>
+<div class="container">
+
+  {% if house_list %}
+  
+   <div class="dropdown">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+      Dropdown button
+    </button>
+    <div class="dropdown-menu">
+      <h5 class="dropdown-header">Dropdown header</h5>
+      {% for fee in house_list %}
+      <a class="dropdown-item" href="">{{fee.housesize}}</a>
+      <p>ok</p>
+      {% endfor %}
+     
+    </div>
+  </div>
+ 
+  
+  {% endif %}
+</div>
+</section>
+<!--end dropdown-->
+
+
+
+  <!-- Optional JavaScript; choose one of the two! -->
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+     <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
+   <!-- jQuery !-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"> </script>
+<!-- jQuery UI !-->
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+ 
+  
+  <!--for auto search last javascript-->
+  <script src="https://unpkg.com/@trevoreyre/autocomplete-js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/@trevoreyre/autocomplete-js/dist/style.css" />
+
+  <!--auto complete for jQuery script add 2 ta-->
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+
+  <!--Jquery UI for auto search.house+dhaka also create this-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+
+  <!--Autocomplete-->
+  <script>
+      $(function() {
+      $("#query").autocomplete({
+        source: "/auto_house/",
+        select: function (event, ui) { //item selected
+          AutoCompleteSelectHandler(event, ui)
+        },
+      });
+    });
+  
+    function AutoCompleteSelectHandler(event, ui)
+    {
+        const selectedObj = ui.item;
+    }
+  </script>
+<!--end auto search-->
+
+
+
+
+
+  
+
+  </body>
+</html>   

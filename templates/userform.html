@@ -1,0 +1,20 @@
+<form method="post">
+{% csrf_token %}
+    <div>
+        <label>value1</label>
+        <input type="text" name="num1">
+    </div>
+     <div>
+        <label>value2</label>
+        <input type="text" name="num2">
+    </div>
+    <div>
+        <button type="submit">save</button>
+    </div>
+    output
+    <input type="text" value="{{output}}">
+</form>
+
+
+
+

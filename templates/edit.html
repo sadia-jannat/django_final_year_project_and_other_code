@@ -1,0 +1,18 @@
+<h2>Edit here</h2>
+<form action="" method="post">
+{% csrf_token %}
+{{form.as_p}}
+<input type="submit" value="Update">
+<a href="{% url 'indexpage'  %}"> back to index page</a>
+</form>
+
+<h2>Edit ownerformfill model ar object</h2>
+<form action="" method="post">
+{% csrf_token %}
+{{fo.as_p}}
+<input type="submit" value="Update">
+<a href="{% url 'house'  %}"> back to font page</a>
+</form>
+
+
+

@@ -1,0 +1,44 @@
+/* grid try */
+
+.grid-wrap {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 20px;
+}
+
+.grid-wrap {
+    background-color: rgb(109, 194, 228);
+    color: green;
+    height: 250px;
+}
+
+
+/* part holo reviewok.html ar style..amar project ar jonno*/
+
+.part {
+    width: 700px;
+    height: 80px;
+    background: red;
+    transition: width 1s;
+    padding: 10px 10px;
+    margin: 40px 80px;
+    font-size: medium;
+    background-color: #e480ba;
+    -webkit-box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 11px -2px 15px 12px rgba(0, 0, 0, 0.84);
+    box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 11px -2px 15px 12px rgba(0, 0, 0, 0.84);
+    animation-name: animation;
+    animation-duration: 20s;
+}
+
+@keyframes animation {
+    from {
+        background-color: #4b49b3;
+    }
+    to {
+        background-color: #96d8d2;
+    }
+}
+
+.part:hover {
+    width: 600px;
+}
