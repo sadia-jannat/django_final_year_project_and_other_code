@@ -692,16 +692,37 @@ def auto_house(request):
     return HttpResponse(data, mimetype)
 
 
+#sir say work done this showhouse page.house page to select house rent,bedroom,bathroom and area
+#max_price,min_price=houserent model variable k disi
+#max_room,min=bedroom model variable k disi
+#max_bedroom,min=bathroom model variable k disi
 house_list = []
 def showhouse(request):
-    if request.method == 'POST':
-        form = SearchForm(request.POST)
+    
+    max_price = request.GET.get('max_price')
+    min_price = request.GET.get('min_price')
+    max_room = request.GET.get('max_room')
+    min_room = request.GET.get('min_room')
+    max_bedroom = request.GET.get('max_bed')
+    min_bedroom = request.GET.get('min_bed')
+    print(min_price, max_price)
+
+    if request.method == 'GET':
+        form = SearchForm(request.GET)
         if form.is_valid():
             query = form.cleaned_data['query']
             global house_list
-            house_list = ownerformfill.objects.filter(area__icontains=query, division__icontains=query).order_by('housesize', 'houserent')
-    return render(request, 'showhouse.html',{'house_list': house_list, 'query': query, 'login_result': login_result})
-   # return HttpResponseRedirect('/showhouse/')
+            house_list = ownerformfill.objects.filter(area__icontains=query, houserent__range=(min_price, max_price),
+                                                     bedroom__range=(min_room, max_room),
+                                                     bathroom__range=(min_bedroom, max_bedroom))
+
+            print(house_list)
+
+        return render(request, 'showhouse.html',
+                          {'house_list': house_list,  'login_result': login_result})
+        
+           
+
 
 
 def details(request, pk):
