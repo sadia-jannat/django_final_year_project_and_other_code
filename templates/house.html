@@ -113,6 +113,60 @@
 </div>
 
 
+<!--sir say work done..search by house rent,bedroom and other data search by user.
+  we use showhouse page for this search option-->
+  
+<section class="container my-5 d-flex justify-content-center bgcolor">
+
+  <div>
+    
+  <p class="feature"><b>Search Your Preferable Types</b></p>
+
+      <form action="/showhouse/" method="get" class="d-flex flex-column justify-content-around my-2">
+          {% csrf_token %}
+
+
+          <div class="row">
+            <div class="col">
+
+
+          <input id="query" name="query" type="text" class="form-control border border-primary shadow rounded" style="width: 500px" 
+                 placeholder="Where do you wanna go?"><br>
+
+          <input id="min_price" name="min_price" type="number" class="form-control border border-primary shadow rounded" style="width: 500px" 
+                 placeholder="Minimum price"><br>
+
+          <input id="max_price" name="max_price" type="number" class="form-control border border-primary shadow rounded" style="width: 500px" 
+                 placeholder="Maximum price"><br>
+
+          <input id="min_room" name="min_room" type="number" class="form-control border border-primary shadow rounded" style="width: 500px" 
+                 placeholder="Minimum room"><br>
+
+          <input id="max_room" name="max_room" type="number" class="form-control border border-primary shadow rounded" style="width: 500px" 
+                 placeholder="Maximum room"><br>
+
+          <input id="min_bed" name="min_bed" type="number" class="form-control border border-primary shadow rounded" style="width: 500px" 
+                 placeholder="Minimum bedroom"><br>
+
+          <input id="max_bed" name="max_bed" type="number" class="form-control border border-primary shadow rounded" style="width: 500px" 
+                 placeholder="Maximum bedroom"><br>
+
+
+                </div>
+              </div>
+        
+
+
+          <button type="submit" class="btn btn-secondary btn-lg mt-3"><i class="fas fa-search"></i>
+            Search</button>
+      </form>
+  </div>
+
+</section>
+<!--end sir work for showhouse page-->
+
+
+
 <!--image carousel image slide-->
 <!--image slider/carosel-->
 <h1 class="feature"><b>Image Slide</b></h1>
